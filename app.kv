@@ -1,0 +1,52 @@
+# create your Kivy layout in the kv language here
+BoxLayout:
+    orientation:'horizontal'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.3
+        Button:
+            id: req_book
+            text:"Required Books"
+            on_press: app.list_req()
+        Button:
+            id: comp_book
+            text:"Completed Books"
+            on_press: app.list_comp()
+        Label:
+            text:"Add new books"
+        Label:
+            text:"Title"
+        TextInput:
+            id: title_input
+            multiline: False
+            write_tab: False
+        Label:
+            text:"Author"
+        TextInput:
+            id: author_input
+            multiline: False
+            write_tab: False
+        Label:
+            text:"Pages"
+        TextInput:
+            id: pages_input
+            multiline: False
+            write_tab: False
+        Button:
+            text:"Add item"
+            on_press: app.add_book()
+        Button:
+            text:"Clear"
+            on_press: app.clear()
+    BoxLayout:
+        orientation:'vertical'
+        size_hint_x: 0.7
+        Label:
+            size_hint_y: 0.1
+            text: app.count_the_page
+        BoxLayout:
+            orientation: 'vertical'
+            id: box_display
+        Label:
+            size_hint_y: 0.1
+            text: app.information_bar
